@@ -1,23 +1,7 @@
 node {
     stage('Preparation') { // for display purposes
-        // Get some code from a GitHub repository
-        //sh 'mkdir /home/david/jenkins/test'
-        //script {
-	
-			if(isUnix()){
-			
-				echo "This is linux."
-			
-			}
+        	
 		
-		//}
-		
-		sh '''
-        ls /home/david
-        		
-        cd /home/david/jenkins/test
-        touch /home/david/jenkins/test/kako.txt
-        '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
 		
@@ -28,7 +12,7 @@ node {
 		#else
 		#	echo "No process found running on port 8081."
 		#fi
-                   
+        pwd           
         cd python
 		cd python
 		pwd
