@@ -14,9 +14,7 @@ node {
 		#fi
         pwd           
         cd python
-		cd python
-		pwd
-        export JENKINS_NODE_COOKIE=dontKillMe
+		export JENKINS_NODE_COOKIE=dontKillMe
 		nohup uvicorn api:app --reload --host 0.0.0.0 --port 8000 &
         '''
     }
