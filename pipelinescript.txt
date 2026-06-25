@@ -10,13 +10,13 @@ node {
         '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
-        PID=$(lsof -t -i:8081)
-                    if [ ! -z "$PID" ]; then
-                        echo "Found process $PID on port 8081. Terminating..."
-                        kill -15 $PID
-                    else
-                        echo "No process found running on port 8081."
-                    fi
+        #PID=$(lsof -t -i:8081)
+		#if [ ! -z "$PID" ]; then
+		#	echo "Found process $PID on port 8081. Terminating..."
+		#	kill -15 $PID
+		#else
+		#	echo "No process found running on port 8081."
+		#fi
                     
         mvn clean package
         export JENKINS_NODE_COOKIE=dontKillMe
