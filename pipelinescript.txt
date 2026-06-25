@@ -22,7 +22,7 @@ node {
         sh '''
 		MMM="AAA"
 		
-		if [ ! "$MMM" -eq "AAA" ]; then
+		if [ ! "$MMM" == "AAA" ]; then
 			echo "============ 1"
 		else
 		    echo "============ 2"
