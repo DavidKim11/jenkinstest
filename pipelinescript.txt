@@ -2,28 +2,32 @@ node {
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
         //sh 'mkdir /home/david/jenkins/test'
-        script {
-		
+        //script {
+	
 			if(isUnix()){
 			
-				echo "This is unix."
+				echo "This is linux."
 			
 			}
 		
-		}
-		
+		//}
 		
 		sh '''
         ls /home/david
-        
-		
-		
-		
+        		
         cd /home/david/jenkins/test
         touch /home/david/jenkins/test/kako.txt
         '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
+		MMM = "AAA"
+		
+		if [ ! "$MMM" -eq "AAA" ]; then
+			echo "============ 1"
+		else
+		    echo "============ 2"
+		fi
+
         #PID=$(lsof -t -i:8081)
 		#if [ ! -z "$PID" ]; then
 		#	echo "Found process $PID on port 8081. Terminating..."
