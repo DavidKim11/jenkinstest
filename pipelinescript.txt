@@ -2,9 +2,23 @@ node {
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
         //sh 'mkdir /home/david/jenkins/test'
-        sh '''
+        script {
+		
+			if(isUnix()){
+			
+				echo "This is unix."
+			
+			}
+		
+		}
+		
+		
+		sh '''
         ls /home/david
         
+		
+		
+		
         cd /home/david/jenkins/test
         touch /home/david/jenkins/test/kako.txt
         '''
