@@ -20,7 +20,7 @@ node {
         '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
-		MMM = "AAA"
+		MMM="AAA"
 		
 		if [ ! "$MMM" -eq "AAA" ]; then
 			echo "============ 1"
