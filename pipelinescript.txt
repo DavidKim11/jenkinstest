@@ -1,0 +1,38 @@
+node {
+    stage('Preparation') { // for display purposes
+        // Get some code from a GitHub repository
+        //sh 'mkdir /home/david/jenkins/test'
+        sh '''
+        ls /home/david
+        
+        cd /home/david/jenkins/test
+        touch /home/david/jenkins/test/kako.txt
+        '''
+        git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
+        sh '''
+        PID=$(lsof -t -i:8081)
+                    if [ ! -z "$PID" ]; then
+                        echo "Found process $PID on port 8081. Terminating..."
+                        kill -15 $PID
+                    else
+                        echo "No process found running on port 8081."
+                    fi
+                    
+        mvn clean package
+        export JENKINS_NODE_COOKIE=dontKillMe
+        nohup java -jar /var/lib/jenkins/workspace/Test/target/mytest-0.0.1-SNAPSHOT.war &
+        '''
+    }
+    //stage('Build') {
+        // Run the build. You must have Maven installed.
+    //    if (isUnix()) {
+    //        sh 'mvn -Dmaven.test.failure.ignore clean package'
+    //    } else {
+    //        bat 'mvn -Dmaven.test.failure.ignore clean package'
+    //    }
+    //}
+    //stage('Results') {
+    //    junit '**/target/surefire-reports/TEST-*.xml'
+    //   archiveArtifacts 'target/*.jar'
+    //}
+}
