@@ -6,6 +6,7 @@ WORKDIR /app
 COPY requirements.txt .
 COPY ./*.* .
 
+RUN pip install uvicorn
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
