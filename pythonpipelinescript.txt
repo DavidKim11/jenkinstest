@@ -16,8 +16,8 @@ node {
         cd python
 		#export JENKINS_NODE_COOKIE=dontKillMe
 		#nohup uvicorn api:app --reload --host 0.0.0.0 --port 8000 --ssl-keyfile=key.pem --ssl-certfile=cert.pem &
-		docker build -t fastapi-app .
-		docker run -d -p 7000:7000 fastapi-app
+		docker build -t fastapi-app:latest .
+		docker run -d --name fastapi-app -p 7000:7000 fastapi-app:latest
 		
         '''
     }
