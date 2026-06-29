@@ -16,10 +16,10 @@ node {
 		
 		sh '''
 		pwd
-        ls /home/david
+        #ls /home/david
         		
-        cd /home/david/jenkins/Test
-        touch /home/david/jenkins/Test/kako.txt
+        #cd /home/david/jenkins/Test
+        #touch /home/david/jenkins/Test/kako.txt
         '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
