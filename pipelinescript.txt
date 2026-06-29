@@ -44,7 +44,7 @@ node {
         #nohup java -jar /var/lib/jenkins/workspace/ABCDE/target/mytest-0.0.1-SNAPSHOT.war &
         cd /var/lib/jenkins/workspace/ABCDE
         
-        docker rm myapp
+        docker rm -f myapp
         docker build -t my-app:latest .
         docker run -d --name myapp -p 8081:8081 my-app:latest 
         '''
