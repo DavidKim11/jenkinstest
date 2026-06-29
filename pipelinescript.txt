@@ -17,8 +17,8 @@ node {
 		sh '''
         ls /home/david
         		
-        cd /home/david/jenkins/test
-        touch /home/david/jenkins/test/kako.txt
+        cd /home/david/jenkins/ABCDE
+        touch /home/david/jenkins/ABCDE/kako.txt
         '''
         git branch: 'main', credentialsId: 'gittoken', url: 'https://github.com/DavidKim11/jenkinstest.git'
         sh '''
@@ -40,8 +40,8 @@ node {
                     
         mvn clean package
         #export JENKINS_NODE_COOKIE=dontKillMe
-        #nohup java -jar /var/lib/jenkins/workspace/Test/target/mytest-0.0.1-SNAPSHOT.war &
-        cd /var/lib/jenkins/workspace/Test
+        #nohup java -jar /var/lib/jenkins/workspace/ABCDE/target/mytest-0.0.1-SNAPSHOT.war &
+        cd /var/lib/jenkins/workspace/ABCDE
         docker build -t my-app:latest .
         
         '''
