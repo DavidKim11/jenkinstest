@@ -12,4 +12,4 @@ COPY . .
 
 #uvicorn api:app --reload --host 0.0.0.0 --port 8000 --ssl-keyfile=key.pem --ssl-certfile=cert.pem
 
-CMD ["uvicorn", "api:app", "--port", "8000", "--ssl-keyfile", "key.pem", "--ssl-certfile", "cert.pem"]
+CMD ["uvicorn", "api:app", "--port", "7000", "--ssl-keyfile", "key.pem", "--ssl-certfile", "cert.pem"]
