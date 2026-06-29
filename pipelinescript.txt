@@ -1,7 +1,7 @@
 node {
     stage('Preparation') { // for display purposes
 	
-		cleanWs()
+		//cleanWs()
         // Get some code from a GitHub repository
         //sh 'mkdir /home/david/jenkins/test'
         //script {
@@ -15,6 +15,7 @@ node {
 		//}
 		
 		sh '''
+		pwd
         ls /home/david
         		
         cd /home/david/jenkins/Test
