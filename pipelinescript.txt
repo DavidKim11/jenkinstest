@@ -37,8 +37,11 @@ node {
 		#fi
                     
         mvn clean package
-        export JENKINS_NODE_COOKIE=dontKillMe
-        nohup java -jar /var/lib/jenkins/workspace/Test/target/mytest-0.0.1-SNAPSHOT.war &
+        #export JENKINS_NODE_COOKIE=dontKillMe
+        #nohup java -jar /var/lib/jenkins/workspace/Test/target/mytest-0.0.1-SNAPSHOT.war &
+        
+        docker build -t my-app:latest /var/lib/jenkins/workspace/Test
+        
         '''
     }
     //stage('Build') {
