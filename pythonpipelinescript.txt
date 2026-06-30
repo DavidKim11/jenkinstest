@@ -16,8 +16,16 @@ node {
         cd python
 		#export JENKINS_NODE_COOKIE=dontKillMe
 		#nohup uvicorn api:app --reload --host 0.0.0.0 --port 8000 --ssl-keyfile=key.pem --ssl-certfile=cert.pem &
-		docker rm -f $(docker ps -aq)
-		docker rmi $(docker images -aq)
+		
+		PS=$(docker ps -aq)
+		IMAGES=$(docker images -aq)
+		if [ ! -z "$PS" ]; then
+		    docker rm -f $(docker ps -aq)
+		fi
+		
+		if [ ! -z "$IMAGES" ]; then
+		    docker rmi $(docker images -aq)
+		fi
 		
 		docker build -t fastapi-app:latest .
 		docker run -d --name fastapi-app -p 7000:7000 fastapi-app:latest
