@@ -2,6 +2,9 @@
 FROM python:3.11-slim
 
 WORKDIR /app
+ENV TESTA="TESTA" \
+TESTB="TESTB" \
+TESTC="TESTC"
 
 COPY requirements.txt .
 COPY ./*.* .
